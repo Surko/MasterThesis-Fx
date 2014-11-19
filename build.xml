@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="after-deploy" name="GenTree">
+	
+	<macrodef name="copy-to-dir">
+		<attribute name="todir"/>
+		<attribute name="fromdir"/>
+		<attribute name="exclude" default=""/>
+		<sequential>
+		    <copy todir="@{todir}">
+		      <fileset dir="@{fromdir}" excludes="@{exclude}"/>		        		      
+		    </copy>
+		</sequential>
+	
+	</macrodef>
+	
+	<!--this file was created by Eclipse Runnable JAR Export Wizard-->
+	<!--ANT 1.7 is required                                        -->
+	<target name="do-deploy">
+		<delete dir="./build/libs" />
+		<delete dir="./build/classes/locales" />
+		<delete file="./build/classes/GenTree.log" />
+		<delete file="./build/classes/config.properties" />
+		<delete file="./build/classes/icon.png" />
+		<!--Prekopirovanie lokalizacnych suborov-->
+		<copy todir="./build/classes/gentree/locales">
+			<fileset dir="./src/main/java/gentree/locales" excludes="**/*.java" />
+		</copy>
+		<jar destfile="./build/libs/GenTree.jar">
+			<manifest>
+				<attribute name="Main-Class" value="gentree.GenTree" />
+				<attribute name="Class-Path" value=". libs/jfxrt.jar" />
+			</manifest>
+			<fileset dir="./build/classes" />
+		</jar>
+
+	</target>
+
+	
+	<!--Dodatocne kopirovania *.bat, *.properties, lang_xx.properties do adresarov-->
+	<target name="after-deploy" depends="do-deploy">
+	  	<copy file="./src/main/resources/icon.png" todir="./build/libs" />
+		<copy file="./src/main/resources/icon.png" todir="./build/classes" />
+		<!--Prekopirovanie spustitelneho suboru run.bat aj s default nastavenim loggeru-->
+		<copy-to-dir fromdir="./toDeploy" todir="./build/libs"/>		
+		<!--Prekopirovanie lokalizacnych suborov do lib aj classes adresara-->
+		<copy-to-dir fromdir="./src/main/java/gentree/locales" todir="./build/libs/locales" exclude="**/*.java"/>
+		<copy-to-dir fromdir="./src/main/java/gentree/locales" todir="./build/classes/locales" exclude="**/*.java"/>		
+		<!--Prekopirovanie kniznice pre javafx-->
+		<copy file="C:/Program Files/Java/jdk1.8.0_05/javafx-src.zip" todir="./build/libs/libs" />
+	</target>
+</project>

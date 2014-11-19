@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<top>
+<MenuBar prefHeight="25.0" BorderPane.alignment="CENTER">
+<cursor>
+<Cursor fx:constant="HAND" />
+</cursor>
+<menus>
+<Menu mnemonicParsing="false" text="File">
+<items>
+<MenuItem fx:id="new_profile" mnemonicParsing="false" text="New Profile" /><MenuItem fx:id="load_profile" mnemonicParsing="false" text="Load Profile" /><MenuItem fx:id="save_profile" mnemonicParsing="false" text="Save Profile" /><MenuItem mnemonicParsing="false" text="Close Profile" /><MenuItem fx:id="close" mnemonicParsing="false" text="Close" />
+</items>
+<accelerator>
+<KeyCodeCombination alt="UP" code="F" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+</accelerator>
+</Menu>
+<Menu mnemonicParsing="false" text="Options">
+<items>
+<MenuItem mnemonicParsing="false" text="Delete" />
+</items>
+</Menu>
+<Menu mnemonicParsing="false" text="Help">
+<items>
+<MenuItem mnemonicParsing="false" text="About" />
+</items>
+</Menu>
+</menus>
+<BorderPane.margin>
+<Insets bottom="2.0" />
+</BorderPane.margin>
+<effect>
+<DropShadow blurType="GAUSSIAN" color="#0b115e" spread="0.08" />
+</effect>
+</MenuBar>
+</top>
+</BorderPane>
