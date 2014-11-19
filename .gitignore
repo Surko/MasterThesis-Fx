@@ -1,3 +1,14 @@
+build/*
+doc/*
+javafx-deploy/*
+ext-libs/*
+.settings
+.classpath
+.externalToolBuilders/*
+.project
+!.gitignore
+!.gitattributes
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -26,7 +37,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
